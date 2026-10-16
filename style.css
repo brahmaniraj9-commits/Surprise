@@ -1,0 +1,380 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 28px 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+
+    background:
+        radial-gradient(ellipse at top, #42216a, transparent 65%),
+        linear-gradient(135deg, #100824, #1c103b, #310d3d);
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(#fff 1px, transparent 1.5px),
+        radial-gradient(#e5a5ff 1px, transparent 1.5px);
+
+    background-size: 40px 40px, 65px 65px;
+    background-position: 0 0, 25px 30px;
+    animation: starsMove 15s linear infinite;
+}
+
+.birthday-card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 560px;
+    padding: 34px 23px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 28px;
+
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 45px #a64dff25;
+
+    animation: cardAppear 1s ease-out both;
+}
+
+.eyebrow {
+    color: #ffc3f0;
+    font-size: 12px;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    font-weight: bold;
+    animation: fadeIn 1.5s ease both;
+}
+
+.cake {
+    margin: 20px 0;
+    font-size: 88px;
+    filter: drop-shadow(0 0 18px #ff76d5);
+    animation: cakeBounce 2s ease-in-out infinite;
+}
+
+.glow-title {
+    font-size: clamp(42px, 10vw, 64px);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 10px #ff78df,
+        0 0 30px #bb5bff,
+        0 0 55px #9a45ff;
+
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+.glow-title span {
+    color: #ffc0ee;
+}
+
+.person-name {
+    margin-top: 15px;
+    font-size: clamp(27px, 7.5vw, 43px);
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+
+    background: linear-gradient(90deg, #ffd2f5, #ffffff, #cbaaff);
+    color: #ffd2f5;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: nameAppear 1.5s ease both;
+}
+
+.sparkle-line {
+    margin: 20px 0;
+    color: #ffb4ee;
+    font-size: 15px;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.subtitle {
+    color: #ffe0f7;
+    font-size: clamp(19px, 4.8vw, 24px);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.description {
+    color: #eee5ff;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 430px;
+    margin: auto;
+}
+
+.gift {
+    font-size: 75px;
+    margin: 23px 0;
+    cursor: pointer;
+    animation: giftWiggle 1.5s ease-in-out infinite;
+}
+
+button {
+    width: 100%;
+    max-width: 370px;
+    min-height: 60px;
+    padding: 16px 12px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: linear-gradient(90deg, #ff87d7, #c09aff);
+    color: #260e3d;
+
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.5;
+
+    cursor: pointer;
+    box-shadow: 0 0 22px #ff87d755;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 35px #ff87d7a0;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+button:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 5px;
+}
+
+#birthdayMessage {
+    margin-top: 26px;
+    padding: 22px 17px;
+
+    border: 1px solid #ffb4ef70;
+    border-radius: 20px;
+    background: #ffffff0c;
+    text-align: left;
+}
+
+#birthdayMessage[hidden] {
+    display: none;
+}
+
+#birthdayMessage.reveal {
+    animation: messageReveal 0.9s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+#birthdayMessage h2 {
+    text-align: center;
+    color: #ffc1ed;
+    font-size: clamp(23px, 6vw, 30px);
+    margin-bottom: 18px;
+}
+
+#birthdayMessage p {
+    color: #f5edff;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+#birthdayMessage h3 {
+    color: #ffd0f4;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+#birthdayMessage .love {
+    text-align: center;
+    margin: 18px 0 0;
+    color: #ffb5e8;
+}
+
+.bottom-emojis {
+    margin-top: 25px;
+    font-size: 27px;
+    letter-spacing: 5px;
+    animation: emojiBounce 2s ease-in-out infinite;
+}
+
+footer {
+    color: #cbbbe8;
+    margin-top: 23px;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Floating balloons */
+
+.balloon {
+    position: fixed;
+    bottom: -100px;
+    z-index: 5;
+    pointer-events: none;
+    animation: balloonFly var(--duration) linear forwards;
+    will-change: transform;
+}
+
+/* Falling confetti */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    z-index: 10;
+    pointer-events: none;
+    animation: confettiFall var(--duration) linear forwards;
+}
+
+/* Animations */
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(45px) scale(.94);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes cakeBounce {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-13px) rotate(4deg); }
+}
+
+@keyframes titleGlow {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.4); }
+}
+
+@keyframes nameAppear {
+    from { opacity: 0; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: .55; }
+    50% { opacity: 1; }
+}
+
+@keyframes giftWiggle {
+    0%, 100% { transform: rotate(-8deg) scale(1); }
+    25% { transform: rotate(8deg) scale(1.08); }
+    50% { transform: rotate(-8deg) scale(1.04); }
+    75% { transform: rotate(8deg) scale(1.08); }
+}
+
+@keyframes messageReveal {
+    0% { opacity: 0; transform: translateY(35px) scale(.85); }
+    70% { opacity: 1; transform: translateY(-5px) scale(1.02); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes balloonFly {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(-12deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    50% {
+        transform: translate3d(var(--drift), -60vh, 0) rotate(12deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(calc(var(--drift) * -0.5), -125vh, 0)
+                   rotate(-12deg);
+        opacity: 0;
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-10px) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(115vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes starsMove {
+    to { background-position: 40px 80px, 90px 95px; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes emojiBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+/* Small phone screens */
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 11px;
+        align-items: flex-start;
+    }
+
+    .birthday-card {
+        padding: 28px 17px;
+        margin: auto 0;
+        border-radius: 24px;
+    }
+
+    .cake { font-size: 76px; }
+
+    .eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+    }
+
+    .description { font-size: 16px; }
+
+    button {
+        font-size: 15px;
+        min-height: 58px;
+    }
+
+    .bottom-emojis {
+        font-size: 23px;
+        letter-spacing: 2px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
